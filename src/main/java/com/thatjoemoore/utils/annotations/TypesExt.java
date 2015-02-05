@@ -34,7 +34,7 @@ public final class TypesExt {
     private TypesExt() {}
 
     public static TypeMirror notPrimitive(Types types, TypeMirror type) {
-        if (type instanceof PrimitiveType) {
+        if (type.getKind().isPrimitive()) {
             return types.boxedClass((PrimitiveType) type).asType();
         }
         return type;
